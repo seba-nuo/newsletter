@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'auths',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -80,6 +84,30 @@ DATABASES = {
     }
 }
 
+REST_FRAMEWORK = {
+    
+  'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
+  ),
+   'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',
+    ),
+}
+
+
+AUTH_USER_MODEL = 'auths.User'
+
+DJOSER = {
+
+     'LOGIN_FIELD' : 'email',
+     'USER_CREATE_PASSWORD_RETYPE' : True,
+     'SERIALIZERS' : {
+         'user_create' : 'auths.serializers.UserCreateSerializer',
+         'user' : 'auths.serializers.UserCreateSerializer',
+     },
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
