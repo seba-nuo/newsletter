@@ -15,8 +15,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+from rest_framework.routers import DefaultRouter
+from newsletters.views import NewsletterViewSet
+from subscriptions.views import SubscriptionViewSet
+
+router = DefaultRouter()
+router.register(r'newsletters', NewsletterViewSet)
+router.register(r'subscriptions', SubscriptionViewSet)
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('auth/', include('auths.urls')),
+    url(r'^api/v1/', include(router.urls)),
 ]
