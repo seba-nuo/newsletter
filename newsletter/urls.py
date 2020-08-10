@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
-from newsletters.views import NewsletterViewSet
+from newsletters.views import NewsletterViewSet, VoteViewSet, TagViewSet
 from subscriptions.views import SubscriptionViewSet
 
 router = DefaultRouter()
