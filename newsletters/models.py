@@ -44,3 +44,4 @@ class NewsLetter_Tag(models.Model):
 
     def __str__(self):
         return self.newsletter.name + " " + self.tag.name
+
