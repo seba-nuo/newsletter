@@ -19,10 +19,12 @@ from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
 from newsletters.views import NewsletterViewSet, VoteViewSet, TagViewSet
 from subscriptions.views import SubscriptionViewSet
+from auths.views import UserViewSet
 
 router = DefaultRouter()
 router.register(r'newsletters', NewsletterViewSet)
 router.register(r'subscriptions', SubscriptionViewSet)
+router.register(r'users', UserViewSet)
 
 
 urlpatterns = [
