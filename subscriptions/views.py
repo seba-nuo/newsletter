@@ -11,8 +11,8 @@ def send_email():
     email = EmailMessage(
         'Title',
         'Hola',
-        'pruebaspruebas2020aca@gmail.com',
-        ['smartechbeat@gmail.com'],
+        '**********@gmail.com',
+        ['**********@gmail.com'],
     )
     email.send()
 
@@ -23,6 +23,10 @@ class SubscriptionViewSet(viewsets.ModelViewSet):
 
 
     def create(self, request, *args, **kwargs):
+        print(request.data['user'])
+        user_id = request.data['user']
+        user = User.objects.filter(id=user_id)
+        print(user)
         response = super(SubscriptionViewSet, self).create(request, *args, **kwargs)
         send_email()  # sending mail
         return response
