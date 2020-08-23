@@ -81,8 +81,12 @@ WSGI_APPLICATION = 'newsletter.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'newsletter',
+        'USER': 'developer',
+        'PASSWORD': '123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 
@@ -151,8 +155,8 @@ STATIC_URL = '/static/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'pruebaspruebas2020aca@gmail.com'
-EMAIL_HOST_PASSWORD = 'Pruebas2020'
+EMAIL_HOST_USER = '**********@gmail.com'
+EMAIL_HOST_PASSWORD = '*******'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 # EMAIL_USE_SSL = False

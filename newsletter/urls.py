@@ -23,6 +23,7 @@ from auths.views import UserViewSet
 
 router = DefaultRouter()
 router.register(r'newsletters', NewsletterViewSet)
+router.register(r'votes', VoteViewSet)
 router.register(r'subscriptions', SubscriptionViewSet)
 router.register(r'users', UserViewSet)
 
