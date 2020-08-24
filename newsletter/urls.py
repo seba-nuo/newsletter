@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls import url
 from rest_framework.routers import DefaultRouter
-from newsletters.views import NewsletterViewSet, VoteViewSet, TagViewSet
+from newsletters.views import NewsletterViewSet, VoteViewSet, TagViewSet, NewsletterTagViewSet
 from subscriptions.views import SubscriptionViewSet
 from auths.views import UserViewSet
 from django.conf.urls.static import static
@@ -28,6 +28,8 @@ router.register(r'newsletters', NewsletterViewSet)
 router.register(r'votes', VoteViewSet)
 router.register(r'subscriptions', SubscriptionViewSet)
 router.register(r'users', UserViewSet)
+router.register(r'tags', TagViewSet )
+router.register(r'newsletters-tags', NewsletterTagViewSet)
 
 
 urlpatterns = [

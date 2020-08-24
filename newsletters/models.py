@@ -29,15 +29,15 @@ class Vote(models.Model):
 
 
 class Tag(models.Model):
-    name = models.CharField(max_length=100)
-    slug = models.CharField(max_length=150)
+    name = models.CharField(max_length=100, unique=True)
+    slug = models.CharField(max_length=150, unique=True)
     created_at = models.DateTimeField(auto_created=timezone.now)
     
     def __str__(self):
         return self.name
 
 
-class NewsLetter_Tag(models.Model):
+class NewsletterTag(models.Model):
     newsletter = models.ForeignKey(Newsletter, on_delete=models.CASCADE, related_name='related_tags')
     tag = models.ForeignKey(Tag, on_delete=models.CASCADE, related_name='newsletters_tagged')
     class Meta:

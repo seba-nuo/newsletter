@@ -1,4 +1,4 @@
-from newsletters.models import Newsletter, Vote, Tag
+from newsletters.models import Newsletter, Vote, Tag, NewsletterTag
 from rest_framework import serializers
 
 
@@ -16,6 +16,11 @@ class VoteSerializer(serializers.ModelSerializer):
 class TagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tag
-        fields = ['id', 'name', 'created_at']
+        fields = ['id', 'name', 'slug', 'created_at']
+
+class NewsletterTagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsletterTag
+        fields = ['id', 'newsletter', 'tag' ]
 
 
