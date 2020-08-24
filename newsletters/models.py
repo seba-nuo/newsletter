@@ -8,6 +8,7 @@ from auths.models import User
 class Newsletter(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField(max_length=500)
+    image = models.ImageField(null=True, blank=True)
     target = models.IntegerField(null=False)
     frequency = models.CharField(max_length=200)
     created_at = models.DateTimeField(auto_created=timezone.now)

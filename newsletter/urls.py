@@ -20,6 +20,8 @@ from rest_framework.routers import DefaultRouter
 from newsletters.views import NewsletterViewSet, VoteViewSet, TagViewSet
 from subscriptions.views import SubscriptionViewSet
 from auths.views import UserViewSet
+from django.conf.urls.static import static
+from django.conf import settings
 
 router = DefaultRouter()
 router.register(r'newsletters', NewsletterViewSet)
@@ -33,3 +35,5 @@ urlpatterns = [
     path('auth/', include('auths.urls')),
     url(r'^api/v1/', include(router.urls)),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
